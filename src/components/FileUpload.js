@@ -3,8 +3,13 @@ import React from 'react';
 import Dropzone from 'react-dropzone';
 
 export default class FileUpload extends React.Component {
+    constructor(){
+        super();
+        this.onDrop = this.onDrop.bind(this);
+    }
+    
     onDrop(files){
-        console.log(files);
+        this.props.onAddFile(files[0]);
     }
     
     render(){
