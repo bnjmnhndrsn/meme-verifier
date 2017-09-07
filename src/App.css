@@ -1,0 +1,17 @@
+.file-dropzone {
+    height: 400px;
+    width: 200px;
+    border: 1px solid black;
+}
+
+.file-dropzone.file-dropzone-active { 
+    border-style: dotted;
+}
+
+.file-dropzone .file-dropzone-target {
+    display: none;
+}
+
+.file-dropzone.file-dropzone-active .file-dropzone-target {
+    display: block;
+}
