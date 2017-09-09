@@ -24,8 +24,11 @@ export default class FileUpload extends React.Component {
                 multiple={false}
                 ref="dropzone"
             >
+                <div className="file-dropzone-empty">
+                    Click or drag to upload your image!
+                </div>
                 <div className="file-dropzone-target">
-                    Drop Image Here
+                    Drop file here!
                 </div>
             </Dropzone>
         );

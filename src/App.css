@@ -1,11 +1,29 @@
+.page-title {
+    text-align: center;
+}
+
 .file-dropzone {
-    height: 400px;
-    width: 200px;
+    margin: auto;
+    height: 500px;
+    width: 500px;
     border: 1px solid black;
+}
+
+.file-dropzone-empty, .file-dropzone-target {
+    line-height: 500px;
+    text-align: center;
 }
 
 .file-dropzone.file-dropzone-active { 
     border-style: dotted;
+}
+
+.file-dropzone.file-dropzone-empty {
+    cursor: pointer;
+}
+
+.file-dropzone.file-dropzone-active .file-dropzone-empty { 
+    display: none;
 }
 
 .file-dropzone .file-dropzone-target {
@@ -13,5 +31,10 @@
 }
 
 .file-dropzone.file-dropzone-active .file-dropzone-target {
+    display: block;
+}
+
+.meme-canvas {
+    margin: auto;
     display: block;
 }

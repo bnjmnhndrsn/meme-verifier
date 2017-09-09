@@ -19,12 +19,15 @@ class App extends Component {
     
     render() {
       return (
-          <div>
-              {
-                  this.state.image ? 
-                  <Canvas image={this.state.image} maxWidth={400} maxHeight={400} /> :
-                  <FileUpload onAddImage={this.onAddImage} />
-              }
+          <div className="app">
+              <h1 className="page-title">Verify your meme!</h1>
+              <div className="content">
+                  {
+                      this.state.image ? 
+                      <Canvas image={this.state.image} maxWidth={500} maxHeight={500} /> :
+                      <FileUpload onAddImage={this.onAddImage} />
+                  }
+              </div>
           </div>
       );
     }
