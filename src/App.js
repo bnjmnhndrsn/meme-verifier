@@ -22,7 +22,7 @@ class App extends Component {
           <div>
               {
                   this.state.image ? 
-                  <Canvas image={this.state.image} /> :
+                  <Canvas image={this.state.image} maxWidth={400} maxHeight={400} /> :
                   <FileUpload onAddImage={this.onAddImage} />
               }
           </div>
