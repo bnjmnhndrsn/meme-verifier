@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Dropzone from 'react-dropzone';
+import { loadImage } from '../utils';
 
 export default class FileUpload extends React.Component {
     constructor(){
@@ -9,7 +10,9 @@ export default class FileUpload extends React.Component {
     }
     
     onDrop(files){
-        this.props.onAddFile(files[0]);
+        loadImage(files[0].preview).then(image => {
+            this.props.onAddImage(image);
+        });
     }
     
     render(){

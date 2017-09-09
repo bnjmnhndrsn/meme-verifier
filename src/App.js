@@ -1,30 +1,29 @@
 import React, { Component } from 'react';
 import FileUpload from './components/FileUpload';
 import Canvas from './components/Canvas';
-
 import './App.css';
 
 class App extends Component {
     constructor(){
         super();
         this.state = {
-            file: null
+            image: null
         };
         
-        this.onAddFile = this.onAddFile.bind(this);
+        this.onAddImage = this.onAddImage.bind(this);
     }
     
-    onAddFile(file){
-      this.setState({file});
+    onAddImage(image){
+        this.setState({image});
     }
     
     render() {
       return (
           <div>
               {
-                  this.state.file ? 
-                  <Canvas file={this.state.file} /> :
-                  <FileUpload onAddFile={this.onAddFile} />
+                  this.state.image ? 
+                  <Canvas image={this.state.image} /> :
+                  <FileUpload onAddImage={this.onAddImage} />
               }
           </div>
       );

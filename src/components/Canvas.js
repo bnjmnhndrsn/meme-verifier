@@ -1,36 +1,17 @@
 import React from 'react';
 
-export default class FileUpload extends React.Component {
-    constructor(){
-        super();
-        this.state = {
-            height: 0,
-            width: 0
-        };
-    }
-    
+export default class Canvas extends React.Component {
     componentDidMount(){
-        debugger;
-        const image = new Image();
-        image.onload = () => {
-            this.setState({
-                height: image.naturalHeight,
-                width: image.naturalWidth
-            }, () => {
-                this.ctx = this._canvas.getContext("2d");
-                this.ctx.drawImage(image, 0, 0);
-            });
-            
-        }
-        image.src = this.props.file.preview;
+        this.ctx = this._canvas.getContext("2d");
+        this.ctx.drawImage(this.props.image, 0, 0);
     }
     
     render(){
         return (
             <canvas
                 ref={(node) => { if (node) { this._canvas = node }}}
-                height={this.state.height}
-                width={this.state.width}
+                height={this.props.image.naturalHeight}
+                width={this.props.image.naturalWidth}
             />
         );
     }
