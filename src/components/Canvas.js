@@ -1,15 +1,26 @@
 import React from 'react';
 
+import Animator from './Animator';
+import ColorFiller from '../animations/ColorFiller';
+
 /*
 - if height greater, scale down to height
 - if width greater, scale down to width
 
 */
+
+const items = [
+    {start: 0, end: 2000, getAnimation: ColorFiller, options: {fillStyle: 'red'}},
+    {start: 2000, end: 4000, getAnimation: ColorFiller, options: {fillStyle: 'green'}}
+]
+
 export default class Canvas extends React.Component {
     componentDidMount(){
         const { width, height } = this.getDimensions();
         this.ctx = this._canvas.getContext("2d");
         this.ctx.drawImage(this.props.image, 0, 0, width, height);
+        this.animator = new Animator({ctx: this.ctx, image: this.props.image, items: items});
+        this.animator.start();
     }
     
     getDimensions(){
