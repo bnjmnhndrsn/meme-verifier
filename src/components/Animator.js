@@ -1,5 +1,5 @@
 export default class Animator {
-    constructor({items, image, ctx}){
+    constructor({items, image, ctx, scale}){
         this.ctx = ctx;
         this.image = image;
         
@@ -7,6 +7,7 @@ export default class Animator {
             return item.getAnimation(Object.assign({
                 duration: item.end - item.start,
                 image,
+                scale
             }, item.options));
         })).then(animations => {
             this.queue = animations.map((animation, i) => {
