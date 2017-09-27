@@ -2,9 +2,11 @@ import React from 'react';
 
 import Animator from './Animator';
 import FaceTracker from '../animations/FaceTracker';
+import Redify from '../animations/Redify';
 
 const items = [
-    {start: 0, end: 2000, getAnimation: FaceTracker, options: {fillStyle: 'red'}},
+    {start: 0, end: 2000, getAnimation: Redify},
+    // {start: 0, end: 2000, getAnimation: FaceTracker}
 ]
 
 export default class Canvas extends React.Component {
@@ -20,11 +22,11 @@ export default class Canvas extends React.Component {
         let height, width, scale;
         
         if (this.props.image.naturalHeight > this.props.image.naturalWidth) {
-            height = Math.max(this.props.maxHeight, this.props.image.naturalHeight);
+            height = Math.min(this.props.maxHeight, this.props.image.naturalHeight);
             scale = height / this.props.image.naturalHeight;
             width = scale * this.props.image.naturalWidth;
         } else {
-            width = Math.max(this.props.maxWidth, this.props.image.naturalWidth);
+            width = Math.min(this.props.maxWidth, this.props.image.naturalWidth);
             scale = width / this.props.image.naturalWidth;
             height = scale * this.props.image.naturalHeight;
         }
